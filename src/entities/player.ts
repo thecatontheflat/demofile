@@ -217,7 +217,7 @@ export class Player extends BaseEntity<CCSPlayer> {
   }
 
   /**
-   * @returns All weapons helds by this player
+   * @returns All weapons held by this player
    */
   get weapons(): Weapon[] {
     return (this.getIndexedProps("m_hMyWeapons")
