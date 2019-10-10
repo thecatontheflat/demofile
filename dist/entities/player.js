@@ -127,7 +127,7 @@ class Player extends baseentity_1.BaseEntity {
         return this._demo.entities.getByHandle(this.getProp("DT_BaseCombatCharacter", "m_hActiveWeapon"));
     }
     /**
-     * @returns All weapons helds by this player
+     * @returns All weapons held by this player
      */
     get weapons() {
         return this.getIndexedProps("m_hMyWeapons")
