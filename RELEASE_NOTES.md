@@ -3,7 +3,7 @@
 <!--
 ### Unreleased
 
-- Unreleased release notes here
+- :sparkles: added `player.isDucked()` and `player.isDucking()`
 -->
 
 ### 1.1.1 (2019-11-06)
