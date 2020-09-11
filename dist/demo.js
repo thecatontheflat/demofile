@@ -101,7 +101,18 @@ class DemoFile extends events_1.EventEmitter {
     this.on("svc_ServerInfo", msg => {
       this.tickInterval = msg.tickInterval;
     });
+
+    this.paused = false;
   }
+
+  pause() {
+    this.paused = true;
+  }
+
+  resume() {
+    this.paused = false;
+  }
+
   /**
    * @returns Number of ticks per second
    */
@@ -224,6 +235,9 @@ class DemoFile extends events_1.EventEmitter {
   }
   _parseRecurse() {
     this._recurse();
+
+    if (this.paused) return;
+
     try {
       this.emit("progress", this._bytebuf.offset / this._bytebuf.limit);
       const command = this._bytebuf.readUint8();
