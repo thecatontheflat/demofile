@@ -67,6 +67,11 @@ export interface IPlayerRoundStats {
  */
 export class Player extends BaseEntity<CCSPlayer> {
   public clientSlot: number;
+  
+  /**
+  * Is used for caching calls this.userInfo!.xuid.toString() as Long.toString() is expensive
+  */
+  private steam64Id: string;
 
   constructor(
     demo: DemoFile,
@@ -169,7 +174,11 @@ export class Player extends BaseEntity<CCSPlayer> {
    * @returns Steam 64 ID
    */
   get steam64Id(): string {
-    return this.userInfo!.xuid.toString();
+    if (!this.steam64Id) {
+      this.steam64Id = this.userInfo!.xuid.toString();
+    }
+
+    return this.steam64Id;
   }
 
   /**
